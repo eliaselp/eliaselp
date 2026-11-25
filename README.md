@@ -15,7 +15,6 @@
   <a href="https://accesscontrol.ink"><img src="https://img.shields.io/badge/Website-accesscontrol.ink-0B1220?style=for-the-badge&logo=googlechrome&logoColor=8BE9FD" alt="Website"></a>
   <a href="https://www.linkedin.com/in/elias-eduardo-liranza-p%C3%A9rez/"><img src="https://img.shields.io/badge/LinkedIn-El%C3%ADas%20Liranza-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:liranzaelias@gmail.com"><img src="https://img.shields.io/badge/Email-liranzaelias@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-  <img src="https://img.shields.io/badge/Open%20to-Remote%20roles-22C55E?style=for-the-badge" alt="Open to remote roles">
 </p>
 
 I build full-stack products with a security-first mindset: multi-tenant SaaS, offline-first access control, encrypted credentials, and infrastructure that stays up when the network doesn't. I currently combine network administration at the Provincial Directorate of Education with remote full-stack work for Church Tech Solution.
@@ -66,7 +65,7 @@ I build full-stack products with a security-first mindset: multi-tenant SaaS, of
 </picture>
 
 <details>
-<summary><b>Contribution snake</b></summary>
+<summary><b>Contribution snake · last 3 years</b></summary>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eliaselp/eliaselp/output/github-snake-dark.svg">

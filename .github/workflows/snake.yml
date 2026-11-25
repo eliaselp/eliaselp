@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - ".github/workflows/snake.yml"
+      - ".github/scripts/snake_3y.py"
 
 jobs:
   build:
@@ -15,12 +16,31 @@ jobs:
       contents: write
 
     steps:
-      - uses: Platane/snk@v3
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+          python-version: "3.12"
+
+      - name: Generate light snake (last 3 years)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 .github/scripts/snake_3y.py \
+            --user "${{ github.repository_owner }}" \
+            --years 3 \
+            --theme light \
+            --output dist/github-snake.svg
+
+      - name: Generate dark snake (last 3 years)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 .github/scripts/snake_3y.py \
+            --user "${{ github.repository_owner }}" \
+            --years 3 \
+            --theme green \
+            --output dist/github-snake-dark.svg
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
