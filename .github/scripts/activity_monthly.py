@@ -21,14 +21,14 @@ import html
 import json
 import math
 import os
-import re
 import subprocess
 import sys
-import urllib.error
 import urllib.request
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+
+from github_private import fetch_private_daily
 
 API = "https://api.github.com"
 MONTHS = ["jan", "feb", "mar", "apr", "may", "jun",
@@ -58,20 +58,6 @@ def token() -> str:
         ).stdout.strip()
     except FileNotFoundError:
         return ""
-
-
-def api_get(path: str, tok: str):
-    url = path if path.startswith("http") else API + path
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Authorization": f"Bearer {tok}",
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "eliaselp-profile-activity",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=60) as response:
-        return json.load(response), response.headers
 
 
 def graphql(query: str, variables: dict, tok: str) -> dict:
@@ -138,39 +124,11 @@ def fetch_public(start: datetime, end: datetime, user: str, tok: str):
 
 
 def fetch_private(start: datetime, end: datetime, user: str, tok: str):
+    daily, repo_count = fetch_private_daily(user, tok, start, end)
     monthly = defaultdict(int)
-    seen: set[str] = set()
-    repos, _ = api_get("/user/repos?affiliation=owner&per_page=100&sort=pushed", tok)
-    private_repos = [repo for repo in repos if repo.get("private")]
-    if not private_repos:
-        print("warning: no private repositories visible to this token", file=sys.stderr)
-
-    since = start.strftime("%Y-%m-%dT%H:%M:%SZ")
-    until = end.strftime("%Y-%m-%dT%H:%M:%SZ")
-    for repo in private_repos:
-        url = (
-            f"{API}/repos/{repo['full_name']}/commits"
-            f"?author={user}&since={since}&until={until}&per_page=100"
-        )
-        while url:
-            try:
-                commits, headers = api_get(url, tok)
-            except urllib.error.HTTPError as exc:
-                if exc.code not in (404, 409):
-                    print(f"warning: {repo['full_name']} commits: HTTP {exc.code}",
-                          file=sys.stderr)
-                break
-            for commit in commits:
-                sha = commit.get("sha")
-                if sha in seen:
-                    continue
-                seen.add(sha)
-                date = commit["commit"]["author"]["date"][:10]
-                monthly[month_key(date)] += 1
-            link = headers.get("Link", "")
-            match = re.search(r'<([^>]+)>;\s*rel="next"', link)
-            url = match.group(1) if match else None
-    return monthly, len(private_repos)
+    for date, count in daily.items():
+        monthly[month_key(date)] += count
+    return monthly, repo_count
 
 
 def nice_max(value: int) -> int:

@@ -24,6 +24,8 @@ from bisect import bisect_right
 from collections import deque
 from datetime import datetime, timedelta, timezone
 
+from github_private import fetch_private_daily
+
 CELL, GAP = 11, 3
 PITCH = CELL + GAP
 MX, MTOP, MBOT = 16, 26, 30
@@ -104,22 +106,58 @@ def _graphql_weeks(user, tok, frm, to):
     return data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
 
-def fetch_weeks(user, tok, years=1):
+def _recompute_levels(weeks):
+    days = [day for week in weeks for day in week["contributionDays"]]
+    max_count = max((day["contributionCount"] for day in days), default=0)
+    for day in days:
+        count = day["contributionCount"]
+        if count == 0 or max_count == 0:
+            level = "NONE"
+        elif count <= max_count * 0.25:
+            level = "FIRST_QUARTILE"
+        elif count <= max_count * 0.50:
+            level = "SECOND_QUARTILE"
+        elif count <= max_count * 0.75:
+            level = "THIRD_QUARTILE"
+        else:
+            level = "FOURTH_QUARTILE"
+        day["contributionLevel"] = level
+
+
+def fetch_weeks(user, tok, years=1, include_private=False):
     """Return [(label, weeks), ...]. One rolling year by default; otherwise
-    one block per calendar year, oldest first, ending with the current year."""
+    one block per calendar year, oldest first, ending with the current year.
+    When include_private is set, private commits are merged into the counts
+    before the snake grid is built."""
     now = datetime.now(timezone.utc)
     if years == 1:
         frm = (now - timedelta(days=365)).strftime("%Y-%m-%dT%H:%M:%SZ")
         to = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-        return [(None, _graphql_weeks(user, tok, frm, to))]
+        blocks = [(None, _graphql_weeks(user, tok, frm, to))]
+        start = now - timedelta(days=365)
+    else:
+        first = now.year - years + 1
+        blocks = []
+        for year in range(first, now.year + 1):
+            frm = f"{year}-01-01T00:00:00Z"
+            to = (now.strftime("%Y-%m-%dT%H:%M:%SZ")
+                  if year == now.year else f"{year}-12-31T23:59:59Z")
+            blocks.append((str(year), _graphql_weeks(user, tok, frm, to)))
+        start = datetime(first, 1, 1, tzinfo=timezone.utc)
 
-    first = now.year - years + 1
-    blocks = []
-    for year in range(first, now.year + 1):
-        frm = f"{year}-01-01T00:00:00Z"
-        to = (now.strftime("%Y-%m-%dT%H:%M:%SZ")
-              if year == now.year else f"{year}-12-31T23:59:59Z")
-        blocks.append((str(year), _graphql_weeks(user, tok, frm, to)))
+    if include_private:
+        daily, repo_count = fetch_private_daily(user, tok, start, now)
+        added = 0
+        for _, weeks in blocks:
+            for week in weeks:
+                for day in week["contributionDays"]:
+                    extra = daily.get(day["date"], 0)
+                    if extra:
+                        day["contributionCount"] += extra
+                        added += extra
+            _recompute_levels(weeks)
+        print(f"merged {added} private commits from {repo_count} private repos")
+
     return blocks
 
 
@@ -356,6 +394,8 @@ def main():
     ap.add_argument("--theme", default="green", choices=list(THEMES), help="color theme")
     ap.add_argument("--years", type=int, default=1, choices=range(1, 6),
                     help="number of calendar years to stack (default: 1)")
+    ap.add_argument("--include-private", action="store_true",
+                    help="merge private-repository commits into the snake grid")
     ap.add_argument("--frame", action="store_true", help="draw a rounded window frame")
     ap.add_argument("--no-counter", dest="counter", action="store_false", help="hide the commits-eaten counter")
     ap.set_defaults(counter=True)
@@ -367,7 +407,7 @@ def main():
     if not tok:
         sys.exit("error: no token found. set GH_TOKEN (or GITHUB_TOKEN).")
 
-    fetched = fetch_weeks(opts.user, tok, opts.years)
+    fetched = fetch_weeks(opts.user, tok, opts.years, opts.include_private)
     width = max(len(weeks) for _, weeks in fetched)
     if opts.years > 1:
         width = max(width, 53)

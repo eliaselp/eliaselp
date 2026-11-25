@@ -9,6 +9,7 @@ on:
       - ".github/workflows/snake.yml"
       - ".github/scripts/snake_3y.py"
       - ".github/scripts/activity_monthly.py"
+      - ".github/scripts/github_private.py"
 
 jobs:
   build:
@@ -25,21 +26,23 @@ jobs:
 
       - name: Generate light snake (last 3 years)
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.CONTRIB_TOKEN || github.token }}
         run: |
           python3 .github/scripts/snake_3y.py \
             --user "${{ github.repository_owner }}" \
             --years 3 \
+            --include-private \
             --theme light \
             --output dist/github-snake.svg
 
       - name: Generate dark snake (last 3 years)
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.CONTRIB_TOKEN || github.token }}
         run: |
           python3 .github/scripts/snake_3y.py \
             --user "${{ github.repository_owner }}" \
             --years 3 \
+            --include-private \
             --theme green \
             --output dist/github-snake-dark.svg
 

@@ -65,7 +65,7 @@ I build full-stack products with a security-first mindset: multi-tenant SaaS, of
 </picture>
 
 <details>
-<summary><b>Contribution snake · last 3 years</b></summary>
+<summary><b>Contribution snake · last 3 years · public + private</b></summary>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eliaselp/eliaselp/output/github-snake-dark.svg">
