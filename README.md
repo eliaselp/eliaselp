@@ -59,9 +59,9 @@ I build full-stack products with a security-first mindset: multi-tenant SaaS, of
 ## Activity
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=eliaselp&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20activity">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=eliaselp&theme=github-compact&hide_border=true&area=true&custom_title=Contribution%20activity">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=eliaselp&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20activity" alt="Contribution activity" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eliaselp/eliaselp/output/activity-monthly-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eliaselp/eliaselp/output/activity-monthly.svg">
+  <img src="https://raw.githubusercontent.com/eliaselp/eliaselp/output/activity-monthly-dark.svg" alt="Monthly contribution activity, including public contributions and private commits" width="100%">
 </picture>
 
 <details>

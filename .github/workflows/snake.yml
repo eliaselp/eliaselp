@@ -1,4 +1,4 @@
-name: Generate contribution snake
+name: Update profile graphics
 
 on:
   schedule:
@@ -8,6 +8,7 @@ on:
     paths:
       - ".github/workflows/snake.yml"
       - ".github/scripts/snake_3y.py"
+      - ".github/scripts/activity_monthly.py"
 
 jobs:
   build:
@@ -41,6 +42,26 @@ jobs:
             --years 3 \
             --theme green \
             --output dist/github-snake-dark.svg
+
+      - name: Generate light monthly activity
+        env:
+          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
+        run: |
+          python3 .github/scripts/activity_monthly.py \
+            --user "${{ github.repository_owner }}" \
+            --years 3 \
+            --theme light \
+            --output dist/activity-monthly.svg
+
+      - name: Generate dark monthly activity
+        env:
+          CONTRIB_TOKEN: ${{ secrets.CONTRIB_TOKEN }}
+        run: |
+          python3 .github/scripts/activity_monthly.py \
+            --user "${{ github.repository_owner }}" \
+            --years 3 \
+            --theme dark \
+            --output dist/activity-monthly-dark.svg
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
