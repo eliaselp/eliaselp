@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 380" role="img" aria-labelledby="chart-title chart-desc">
+  <title id="chart-title">Monthly contribution activity for eliaselp</title>
+  <desc id="chart-desc">Stacked monthly bars from 2024-01 to 2026-11: public contributions and private commits.</desc>
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .axis, .month, .year, .legend { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    .axis { font-size: 10px; fill: #57606a; }
+    .month { font-size: 9px; fill: #8c959f; }
+    .year { font-size: 12px; fill: #1f2328; font-weight: 600; }
+    .legend { font-size: 10px; fill: #57606a; }
+    .title { font-size: 18px; fill: #1f2328; font-weight: 700; }
+    .subtitle { font-size: 11px; fill: #57606a; }
+    .total { font-size: 14px; fill: #1f2328; font-weight: 600; }
+    .total-private { font-size: 11px; fill: #0969da; }
+    .bar { transform-box: fill-box; transform-origin: bottom; animation: grow .8s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }
+  </style>
+  <text x="64" y="32" class="title">Monthly contribution activity</text>
+  <text x="64" y="52" class="subtitle">Monthly totals · 2024–2026 · public contributions + private commits</text>
+  <text x="1072" y="32" text-anchor="end" class="total">972 total</text>
+  <text x="1072" y="52" text-anchor="end" class="total-private">186 private commits</text>
+  <rect x="812" y="62" width="10" height="10" rx="2" fill="#2da44e"/>
+<text x="828" y="71" class="legend">Public contributions</text>
+<rect x="958" y="62" width="10" height="10" rx="2" fill="#0969da"/>
+<text x="974" y="71" class="legend">Private commits</text>
+  <line x1="64" y1="316.00" x2="1072" y2="316.00" stroke="#d8dee4" stroke-width="1" stroke-dasharray="0 0"/>
+<text x="54" y="319.50" text-anchor="end" class="axis">0</text>
+<line x1="64" y1="260.00" x2="1072" y2="260.00" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="54" y="263.50" text-anchor="end" class="axis">60</text>
+<line x1="64" y1="204.00" x2="1072" y2="204.00" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="54" y="207.50" text-anchor="end" class="axis">120</text>
+<line x1="64" y1="148.00" x2="1072" y2="148.00" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="54" y="151.50" text-anchor="end" class="axis">180</text>
+<line x1="64" y1="92.00" x2="1072" y2="92.00" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="54" y="95.50" text-anchor="end" class="axis">240</text>
+  <line x1="409.60" y1="86" x2="409.60" y2="322" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+<line x1="755.20" y1="86" x2="755.20" y2="322" stroke="#d8dee4" stroke-width="1" stroke-dasharray="3 4"/>
+  <g class="bar" style="animation-delay:0.000s">
+<title>jan 2024: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.012s">
+<title>feb 2024: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.024s">
+<title>mar 2024: 1 public, 0 private</title>
+<rect x="127.94" y="315.07" width="16.13" height="1.50" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.036s">
+<title>apr 2024: 43 public, 17 private</title>
+<rect x="156.74" y="275.87" width="16.13" height="40.13" rx="2" fill="#2da44e"/>
+<rect x="156.74" y="260.00" width="16.13" height="15.87" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.048s">
+<title>may 2024: 2 public, 0 private</title>
+<rect x="185.54" y="314.13" width="16.13" height="1.87" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.060s">
+<title>jun 2024: 39 public, 0 private</title>
+<rect x="214.34" y="279.60" width="16.13" height="36.40" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.072s">
+<title>jul 2024: 133 public, 0 private</title>
+<rect x="243.14" y="191.87" width="16.13" height="124.13" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.084s">
+<title>aug 2024: 214 public, 0 private</title>
+<rect x="271.94" y="116.27" width="16.13" height="199.73" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.096s">
+<title>sep 2024: 39 public, 59 private</title>
+<rect x="300.74" y="279.60" width="16.13" height="36.40" rx="2" fill="#2da44e"/>
+<rect x="300.74" y="224.53" width="16.13" height="55.07" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.108s">
+<title>oct 2024: 20 public, 4 private</title>
+<rect x="329.54" y="297.33" width="16.13" height="18.67" rx="2" fill="#2da44e"/>
+<rect x="329.54" y="293.60" width="16.13" height="3.73" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.120s">
+<title>nov 2024: 12 public, 0 private</title>
+<rect x="358.34" y="304.80" width="16.13" height="11.20" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.132s">
+<title>dec 2024: 13 public, 0 private</title>
+<rect x="387.14" y="303.87" width="16.13" height="12.13" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.144s">
+<title>jan 2025: 4 public, 0 private</title>
+<rect x="415.94" y="312.27" width="16.13" height="3.73" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.156s">
+<title>feb 2025: 4 public, 0 private</title>
+<rect x="444.74" y="312.27" width="16.13" height="3.73" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.168s">
+<title>mar 2025: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.180s">
+<title>apr 2025: 16 public, 0 private</title>
+<rect x="502.34" y="301.07" width="16.13" height="14.93" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.192s">
+<title>may 2025: 31 public, 0 private</title>
+<rect x="531.14" y="287.07" width="16.13" height="28.93" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.204s">
+<title>jun 2025: 12 public, 0 private</title>
+<rect x="559.94" y="304.80" width="16.13" height="11.20" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.216s">
+<title>jul 2025: 8 public, 0 private</title>
+<rect x="588.74" y="308.53" width="16.13" height="7.47" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.228s">
+<title>aug 2025: 5 public, 0 private</title>
+<rect x="617.54" y="311.33" width="16.13" height="4.67" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.240s">
+<title>sep 2025: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.252s">
+<title>oct 2025: 11 public, 0 private</title>
+<rect x="675.14" y="305.73" width="16.13" height="10.27" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.264s">
+<title>nov 2025: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.276s">
+<title>dec 2025: 0 public, 41 private</title>
+<rect x="732.74" y="277.73" width="16.13" height="38.27" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.288s">
+<title>jan 2026: 10 public, 43 private</title>
+<rect x="761.54" y="306.67" width="16.13" height="9.33" rx="2" fill="#2da44e"/>
+<rect x="761.54" y="266.53" width="16.13" height="40.13" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.300s">
+<title>feb 2026: 90 public, 4 private</title>
+<rect x="790.34" y="232.00" width="16.13" height="84.00" rx="2" fill="#2da44e"/>
+<rect x="790.34" y="228.27" width="16.13" height="3.73" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.312s">
+<title>mar 2026: 24 public, 0 private</title>
+<rect x="819.14" y="293.60" width="16.13" height="22.40" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.324s">
+<title>apr 2026: 0 public, 8 private</title>
+<rect x="847.94" y="308.53" width="16.13" height="7.47" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.336s">
+<title>may 2026: 0 public, 4 private</title>
+<rect x="876.74" y="312.27" width="16.13" height="3.73" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.348s">
+<title>jun 2026: 0 public, 1 private</title>
+<rect x="905.54" y="315.07" width="16.13" height="1.50" rx="2" fill="#0969da"/>
+</g>
+<g class="bar" style="animation-delay:0.360s">
+<title>jul 2026: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.372s">
+<title>aug 2026: 0 public, 0 private</title>
+</g>
+<g class="bar" style="animation-delay:0.384s">
+<title>sep 2026: 13 public, 0 private</title>
+<rect x="991.94" y="303.87" width="16.13" height="12.13" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.396s">
+<title>oct 2026: 27 public, 0 private</title>
+<rect x="1020.74" y="290.80" width="16.13" height="25.20" rx="2" fill="#2da44e"/>
+</g>
+<g class="bar" style="animation-delay:0.408s">
+<title>nov 2026: 15 public, 5 private</title>
+<rect x="1049.54" y="302.00" width="16.13" height="14.00" rx="2" fill="#2da44e"/>
+<rect x="1049.54" y="297.33" width="16.13" height="4.67" rx="2" fill="#0969da"/>
+</g>
+  <text x="78.40" y="334" text-anchor="middle" class="month">J</text>
+<text x="107.20" y="334" text-anchor="middle" class="month">F</text>
+<text x="136.00" y="334" text-anchor="middle" class="month">M</text>
+<text x="164.80" y="334" text-anchor="middle" class="month">A</text>
+<text x="193.60" y="334" text-anchor="middle" class="month">M</text>
+<text x="222.40" y="334" text-anchor="middle" class="month">J</text>
+<text x="251.20" y="334" text-anchor="middle" class="month">J</text>
+<text x="280.00" y="334" text-anchor="middle" class="month">A</text>
+<text x="308.80" y="334" text-anchor="middle" class="month">S</text>
+<text x="337.60" y="334" text-anchor="middle" class="month">O</text>
+<text x="366.40" y="334" text-anchor="middle" class="month">N</text>
+<text x="395.20" y="334" text-anchor="middle" class="month">D</text>
+<text x="424.00" y="334" text-anchor="middle" class="month">J</text>
+<text x="452.80" y="334" text-anchor="middle" class="month">F</text>
+<text x="481.60" y="334" text-anchor="middle" class="month">M</text>
+<text x="510.40" y="334" text-anchor="middle" class="month">A</text>
+<text x="539.20" y="334" text-anchor="middle" class="month">M</text>
+<text x="568.00" y="334" text-anchor="middle" class="month">J</text>
+<text x="596.80" y="334" text-anchor="middle" class="month">J</text>
+<text x="625.60" y="334" text-anchor="middle" class="month">A</text>
+<text x="654.40" y="334" text-anchor="middle" class="month">S</text>
+<text x="683.20" y="334" text-anchor="middle" class="month">O</text>
+<text x="712.00" y="334" text-anchor="middle" class="month">N</text>
+<text x="740.80" y="334" text-anchor="middle" class="month">D</text>
+<text x="769.60" y="334" text-anchor="middle" class="month">J</text>
+<text x="798.40" y="334" text-anchor="middle" class="month">F</text>
+<text x="827.20" y="334" text-anchor="middle" class="month">M</text>
+<text x="856.00" y="334" text-anchor="middle" class="month">A</text>
+<text x="884.80" y="334" text-anchor="middle" class="month">M</text>
+<text x="913.60" y="334" text-anchor="middle" class="month">J</text>
+<text x="942.40" y="334" text-anchor="middle" class="month">J</text>
+<text x="971.20" y="334" text-anchor="middle" class="month">A</text>
+<text x="1000.00" y="334" text-anchor="middle" class="month">S</text>
+<text x="1028.80" y="334" text-anchor="middle" class="month">O</text>
+<text x="1057.60" y="334" text-anchor="middle" class="month">N</text>
+  <text x="236.80" y="354" text-anchor="middle" class="year">2024</text>
+<text x="582.40" y="354" text-anchor="middle" class="year">2025</text>
+<text x="913.60" y="354" text-anchor="middle" class="year">2026</text>
+</svg>
